@@ -18,7 +18,7 @@ func main() {
 	}
 
 	// 10 tokens capacity, refill 5/sec per tenant (tune as you like)
-	store, err := limiter.NewRedisStore(redisURL, 10, 5)
+	store, err := limiter.NewRedisStore(redisURL, 5, 1)
 	if err != nil {
 		log.Fatalf("failed to connect to Redis: %v", err)
 	}
