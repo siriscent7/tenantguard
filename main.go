@@ -42,6 +42,14 @@ func main() {
 		port = "8080"
 	}
 	log.Printf("TenantGuard listening on :%s", port)
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+			return
+		}
+		fmt.Fprintln(w, "TenantGuard — multi-tenant rate limiter")
+		fmt.Fprintln(w, "Try: GET /health  |  GET /api with header X-Tenant-ID")
+	})
 	log.Fatal(http.ListenAndServe(":"+port, mux))
 
 	_ = context.Background() // (kept import tidy; remove if unused warning)

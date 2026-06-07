@@ -5,7 +5,7 @@
 Distributed per-tenant token-bucket rate limiting with atomic Redis-backed
 counters, so limits hold correctly across multiple server instances.
 
-🔗 **Live demo:** <your-render-url>
+🔗 **Live demo:** https://tenantguard-bvid.onrender.com
 
 ---
 
